@@ -10,6 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ROUTES } from './app.routing'
 import { FilmModule } from './film/film.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AppService } from "./app.service";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
       useHash: Boolean(history.pushState) === false
     })
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

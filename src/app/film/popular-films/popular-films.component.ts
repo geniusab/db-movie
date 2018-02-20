@@ -13,7 +13,7 @@ export class PopularFilmsComponent implements OnInit {
 
   public imgUrl: string = IMAGE_DEFAULT_SIZE;
   public Films: Film[];
-  public page: number = 1;
+  public page: number = 3;
 
   constructor(private filmService: FilmService,
               private router: Router) {
