@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatModule } from "./mat/mat.module";
+import { MatModule } from './mat/mat.module';
 
 @NgModule({
   imports: [
