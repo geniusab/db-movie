@@ -21,4 +21,8 @@ export class FilmService {
     return this.appService.get(`${API_MOVIE_URL}/popular`, page);
   }
 
+  public getDetailFilm (id: number) {
+    return this.appService.get(`${API_MOVIE_URL}/${id}`);
+  }
+
 }

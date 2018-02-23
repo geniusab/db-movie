@@ -1,0 +1,31 @@
+<mat-card class="detail-film-background" *ngIf="film" [ngStyle]="{'background-image': 'url('+backImg + film.backdrop_path + ')'}">
+  <mat-card-title>
+    {{film.title}}
+  </mat-card-title>
+  <div class="wrap_img">
+    <img class="brand-img" mat-card-image [src]="imgUrl+film.poster_path" alt="{{film.title}}">
+  </div>
+
+
+  <mat-card-content>
+    <ul class="info">
+      <li *ngIf="film.homepage"><b>Home page: </b>{{film.homepage}}</li>
+      <li><b>Release: </b>{{film.release_date}}</li>
+      <li><b>Runtime: </b>{{film.runtime}} min</li>
+      <!--<li><b>Production Countries: </b>{{film.production_countries | extractElements}}</li>-->
+      <!--<li><b>Genres: </b>{{film.genres | extractElements}}</li>-->
+      <!--&lt;!&ndash;or&ndash;&gt;-->
+      <!--&lt;!&ndash;<ul *ngFor="let ganre of film.genres">&ndash;&gt;-->
+      <!--&lt;!&ndash;<li>{{ganre.name}}</li>&ndash;&gt;-->
+      <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+      <!--<li><b>Production Companies: </b>{{film.production_companies | extractElements}}</li>-->
+      <!--<li><b>Budget: </b>${{film.budget | replaceSum}} USD</li>-->
+      <!--<li><b>Revenue: </b>${{film.revenue | replaceSum}} USD</li>-->
+    </ul>
+    <p>{{film.overview}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
