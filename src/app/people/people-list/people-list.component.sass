@@ -1,0 +1,31 @@
+.list-grid
+  max-width: 1440px
+  width: 100%
+  margin: 0 auto
+  display: flex
+  flex: 0 22%
+  flex-wrap: wrap
+
+.example-card
+  float: none
+  flex: 0 1 250px
+  max-width: 250px
+  margin: 1%
+
+.actor-rate
+  display: flex
+  width: 100%
+  i
+    display: block
+    width: 10px
+    color: #ece829
+    text-shadow: 0 2px 4px
+
+.list-grid
+  .example-card
+    @for $i from 1 through 20
+      &:nth-child(#{$i})
+        $random-color: rgb(random(255), random(255), random(255))
+        background: linear-gradient($random-color 0%, lighten($random-color, 25%) 100%)
+          //background-color: rgb(random(255),random(255),random(255))
+
