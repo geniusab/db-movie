@@ -1,39 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import { Film } from "../film.model";
-import { FilmService } from "../services/film.service";
-import { ActivatedRoute, ParamMap, Router } from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ActorsFilm, Film} from '../film.model';
+import {FilmService} from '../services/film.service';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
-import { IMAGE_LG_SIZE, IMAGE_DEFAULT_SIZE } from "../../app.config";
+import {IMAGE_LG_SIZE, IMAGE_DEFAULT_SIZE} from '../../app.config';
 
 @Component({
-  selector: 'app-detail-film',
-  templateUrl: './detail-film.component.html',
-  styleUrls: ['./detail-film.component.sass']
+    selector: 'app-detail-film',
+    templateUrl: './detail-film.component.html',
+    styleUrls: ['./detail-film.component.sass']
 })
 export class DetailFilmComponent implements OnInit {
-  public film: Film;
-  public backImg: string = IMAGE_LG_SIZE;
-  public imgUrl: string = IMAGE_DEFAULT_SIZE;
-  // public actors: ActorsFilm[];
-  // public actorId: any = '';
-  // public selectActor: any;
-  constructor(private filmService: FilmService,
-              private route: ActivatedRoute,
-              private router: Router) {
-  }
+    public film: Film;
+    public backImg: string = IMAGE_LG_SIZE;
+    public imgUrl: string = IMAGE_DEFAULT_SIZE;
+    public actors: ActorsFilm[];
+    constructor(private filmService: FilmService,
+                private route: ActivatedRoute) {
+    }
 
-  public ngOnInit() {
-    this.getFilm();
-  }
+    public ngOnInit() {
+        this.getFilm();
+        this.getActorFilm();
+    }
 
-  public getFilm() {
-    this.route.paramMap
-      .switchMap((params: ParamMap) => this.filmService.getDetailFilm(+params.get('id')))
-      .subscribe((film: Film) => {
-        this.film = film;
-      }, (error) => {
-        console.log(error);
-      })
-  }
+    public getFilm() {
+        this.route.paramMap
+            .switchMap((params: ParamMap) => this.filmService.getDetailFilm(+params.get('id')))
+            .subscribe((film: Film) => {
+                this.film = film;
+            }, (error) => {
+                console.log(error);
+            });
+    }
+
+    getActorFilm() {
+        this.route.paramMap
+            .switchMap((params: ParamMap) => this.filmService.getCredits(params.get('id')))
+            .subscribe((actors: ActorsFilm[]) => {
+                    // this.actors = actors.splice(0,6);
+                    this.actors = actors['cast'].splice(0, 7);
+                    console.log(actors);
+                },
+                (error: any) => {
+                    console.log(error);
+                }
+            );
+    }
 
 }

@@ -6,6 +6,7 @@ import { PopularFilmsComponent } from './popular-films/popular-films.component';
 import { FilmService } from './services/film.service';
 import { MatModule } from '../shared/mat/mat.module';
 import { DetailFilmComponent } from './detail-film/detail-film.component';
+import {ExtractElementsPipe} from '../shared/pips/extract-elements.pipe';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { DetailFilmComponent } from './detail-film/detail-film.component';
     FilmRoutingModule,
     MatModule
   ],
-  declarations: [PopularFilmsComponent, DetailFilmComponent],
+  declarations: [PopularFilmsComponent, DetailFilmComponent, ExtractElementsPipe],
   providers: [FilmService]
 })
 export class FilmModule { }
