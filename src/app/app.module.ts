@@ -12,16 +12,24 @@ import {FilmModule} from './film/film.module';
 import {HttpClientModule} from '@angular/common/http';
 import {AppService} from './app.service';
 import {PeopleModule} from './people/people.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+import {SidebarComponent} from './shared/components/sidebar/sidebar.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        NotFoundComponent
+        NotFoundComponent,
+        SidebarComponent,
+        HeaderComponent
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
         SharedModule,
         FilmModule,
         PeopleModule,

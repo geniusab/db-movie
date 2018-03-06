@@ -38,8 +38,8 @@ export class DetailFilmComponent implements OnInit {
         this.route.paramMap
             .switchMap((params: ParamMap) => this.filmService.getCredits(params.get('id')))
             .subscribe((actors: ActorsFilm[]) => {
-                    // this.actors = actors.splice(0,6);
-                    this.actors = actors['cast'].splice(0, 7);
+                    this.actors = actors['cast'];
+                    // this.actors = actors['cast'].splice(0, 7);
                     console.log(actors);
                 },
                 (error: any) => {

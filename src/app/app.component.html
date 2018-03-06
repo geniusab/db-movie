@@ -1,8 +1,41 @@
-<div class="main-content">
-    <div class="button-row">
-        <button mat-button routerLink="popular-films">Popular Films</button>
-        <button mat-button routerLink="people-list">People list</button>
+<mat-sidenav-container class="example-container dark-them" autosize>
+
+
+    <app-header></app-header>
+    <mat-sidenav #sidenav class="sidebar" mode="push">
+        <div class="sidebar__wrapper">
+            <div class="logo">
+                <a class="logo__text">
+                    <div class="logo__img">
+                        <img src="/assets/img/angular.svg">
+                    </div>
+                    Logo</a>
+            </div>
+            <!--<button type="button" mat-button (click)="sidenav.close()">close</button>-->
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="sidebar__background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+
+    </mat-sidenav>
+    <header class="content-header" *ngIf="title">
+        <div class="g-col brand_container">
+            <div class="content-header__section">Spotlight /</div>
+            <h1 class="content-header__title">{{title}}</h1>
+        </div>
+    </header>
+    <div class="example-sidenav-content">
+
+        <div class="dark-them">
+            <button type="button" mat-button (click)="sidenav.toggle()">
+                Menu
+            </button>
+            <router-outlet></router-outlet>
+        </div>
     </div>
-    <router-outlet></router-outlet>
-</div>
+
+</mat-sidenav-container>
+
+
+
+
 

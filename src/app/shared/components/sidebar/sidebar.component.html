@@ -1,0 +1,8 @@
+<ul class="nav-container">
+  <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+    <a class="nav-container__link" mat-button routerLink="popular-films" [color]="'warn'" [routerLink]="[menuItem.path]">
+        <i class="material-icons">{{menuItem.icon}}</i>
+        <span>{{menuItem.title}}</span>
+    </a>
+  </li>
+</ul>
