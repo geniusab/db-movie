@@ -1,0 +1,6 @@
+<div class="pagination" *ngIf="count > 0">
+  <!--<span><b>Min - {{ getMin()}}</b> of <b>Max - {{ totalPages()}} </b> pages</span>-->
+  <button mat-button class="btn" (click)="onPrev()" [disabled]="page === 1 || loading" [ngClass]="{ 'disabled': page === 1 || loading }">Previous</button>
+  <button mat-button class="btn" *ngFor="let pageNum of getPages()" (click)="onPage(pageNum)" [ngClass]="{'active': pageNum === page, 'disabled': loading}">{{pageNum}}</button>
+  <button mat-button class="btn" (click)="onNext()" [disabled]="lastPage() || loading" [ngClass]="{ 'disabled': lastPage() || loading }">Next</button>
+</div>

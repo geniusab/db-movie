@@ -39,16 +39,19 @@
 
 </section>
 <div class="brand_container">
-    <div class="g-col">
+    <div class="g-col actor-list">
         <mat-card class="brand-card default actor g-col-6" *ngFor="let actor of actors">
             <div class="brand-card__img">
-                <img mat-card-image src="https://image.tmdb.org/t/p/w500{{actor.profile_path}}"
+                <img *ngIf="actor.profile_path" src="https://image.tmdb.org/t/p/w500{{actor.profile_path}}"
                      [routerLink]="['/people', actor.id]"/>
+                <i *ngIf="!actor.profile_path" class="material-icons not-found-person">person</i>
             </div>
+            <div class="brand-card__line-rate"></div>
             <footer class="brand-card__footer">
                 <mat-card-title class="brand-card__title">
                     <a [routerLink]="['/actor', actor.id]" class="btn btn-danger btn-round">{{actor.name}}</a>
                 </mat-card-title>
+
                 <!--<mat-card-subtitle class="brand-card__rate">-->
                     <!--<mat-icon class="icon">star reta</mat-icon>-->
                     <!--<span>55</span>-->

@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {ActorsFilm, Film} from '../film.model';
+import {Film} from '../film.model';
 import {FilmService} from '../services/film.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import {IMAGE_LG_SIZE, IMAGE_DEFAULT_SIZE} from '../../app.config';
+import { ActorsFilm } from '../../people/people.model';
 
 @Component({
     selector: 'app-detail-film',

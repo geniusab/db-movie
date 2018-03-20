@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {AppService} from '../app.service';
 import {API_PEOPLE_URL} from '../app.config';
-import {People} from './people.model';
+import { ActorsFilm, People } from './people.model';
 
 @Injectable()
 export class PeopleService {
@@ -16,6 +16,15 @@ export class PeopleService {
 
     public getPeople(id: number): Observable<People | Object> {
         return  this.appService.get(`${API_PEOPLE_URL}/${id}`);
+    }
+   /**
+   * get Person One all films
+   * @param id
+   * @returns {Observable<any>}
+   * ==========================================
+   */
+    public getActorFilms(id: number): Observable<ActorsFilm | Object> {
+     return this.appService.get(`${API_PEOPLE_URL}/${id}/movie_credits`);
     }
 
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {PeopleService} from '../people.service';
-import {People} from '../people.model';
+import { ActorsFilm, People } from '../people.model';
 import 'rxjs/add/operator/switchMap';
 import {IMAGE_DEFAULT_SIZE} from '../../app.config';
 @Component({
@@ -11,6 +11,7 @@ import {IMAGE_DEFAULT_SIZE} from '../../app.config';
 })
 export class PeopleDetailComponent implements OnInit {
     public people: People;
+    public actorFilms: ActorsFilm[];
     public imgUrl: string = IMAGE_DEFAULT_SIZE;
     constructor(private apiServices: PeopleService,
                 private route: ActivatedRoute) {
@@ -18,6 +19,7 @@ export class PeopleDetailComponent implements OnInit {
 
     ngOnInit() {
         this.getPeopleById();
+        this.getFilmsActor();
     }
     getPeopleById() {
         this.route.paramMap
@@ -28,4 +30,17 @@ export class PeopleDetailComponent implements OnInit {
                 console.log(error);
             });
     }
+
+  public getFilmsActor() {
+    this.route.paramMap
+      .switchMap((params: ParamMap) => this.apiServices.getActorFilms(+params.get('id')))
+      .subscribe((actors: ActorsFilm[]) => {
+          this.actorFilms = actors['cast'];
+          // console.log(actors);
+        },
+        (error: any) => {
+          console.log(error);
+        }
+      );
+  }
 }

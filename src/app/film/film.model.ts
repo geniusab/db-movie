@@ -24,13 +24,3 @@ export interface Film {
   video: boolean;
   vote_average: number;
 }
-export interface ActorsFilm {
-    cast_id: number;
-    character: string;
-    credit_id: string;
-    gender: number;
-    id: number;
-    name: string;
-    order: number;
-    profile_path: string;
-}

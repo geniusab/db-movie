@@ -16,23 +16,7 @@
   background-repeat: no-repeat
   background-size: cover
 .card-detail-background
-  background: rgba(255, 255, 255, 0.76)
-
-.content-header
-  margin-bottom: 40px
-  padding-top: 94px
-  height: 220px
-  color: #7d7e7f
   background: #1d1e1f
-  &__title
-    color: #d6d6d6
-    font-size: 2.25rem
-    font-weight: 300
-    line-height: 1.1666666667
-    overflow: hidden
-    text-overflow: ellipsis
-    white-space: nowrap
-    word-wrap: normal
 
 .mat-card-title
   font-size: 1rem
@@ -60,3 +44,37 @@
 
       &__img
         max-width: 80%
+
+
+.actor-list
+  padding-top: 20px
+.brand-card.actor
+  padding: 0
+  border-top: 1px solid rgba(255,255,255,0.1)
+  border-bottom: 1px solid #ffbc00
+  margin-bottom: 30px
+  .brand-card__img
+    height: 200px
+    overflow: hidden
+    img
+      transform: translateY(-15.33%)
+      max-width: 100%
+  .brand-card__title
+    padding: 12px
+    a
+      text-decoration: none
+
+  @for $i from 1 through 20
+    &:nth-child(#{$i})
+      .brand-card__line-rate
+        width: random(100)+px
+        background: #1d1e1f
+        height: 3px
+
+.not-found-person
+  font-size: 15vw
+.info
+  margin-bottom: 20px
+  li
+    padding: 10px 0
+    border-bottom: #1d1e1f solid 2px

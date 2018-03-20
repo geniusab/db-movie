@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PeopleService} from '../people.service';
-import {People, PeopleFilm} from '../people.model';
+import {People} from '../people.model';
 import {IMAGE_DEFAULT_SIZE} from '../../app.config';
 
 @Component({
@@ -9,7 +9,7 @@ import {IMAGE_DEFAULT_SIZE} from '../../app.config';
     styleUrls: ['./people-list.component.sass']
 })
 export class PeopleListComponent implements OnInit {
-    public people: PeopleFilm[];
+    public people: People[];
     public imgUrl: string = IMAGE_DEFAULT_SIZE;
     constructor(private apiServices: PeopleService) {
     }
@@ -19,7 +19,7 @@ export class PeopleListComponent implements OnInit {
     }
 
     public getPeople() {
-        this.apiServices.getPopularPeople().subscribe((data: PeopleFilm[]) => {
+        this.apiServices.getPopularPeople().subscribe((data: People[]) => {
             this.people = data['results'];
         }, (error) => {
             console.log(error);

@@ -1,0 +1,38 @@
+$grey50: #225;
+$base: 100;
+$lightgrey: #333;
+//@import '~vars';
+//@import '~typography';
+:host {
+  flex: 0 0 30px;
+  display: flex;
+  .pagination {
+    width: 100%;
+    position: relative;
+    flex: 1;
+    //background: #5bc0de;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    button {
+      flex: 0 0 auto;
+      outline: none;
+      border: 0;
+      padding: 0 ($base / 2);
+      background: transparent;
+      cursor: pointer;
+      color: #d6d6d6;
+      &.active {
+        background: #d6d6d6;
+        color: #1d1e1f;
+        //@extend .h6;
+      }
+
+      &.disabled {
+        //@extend .link-disabled;
+        color: $lightgrey;
+      }
+    }
+  }
+}
