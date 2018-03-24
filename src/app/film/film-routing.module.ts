@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PopularFilmsComponent } from './popular-films/popular-films.component';
 import { DetailFilmComponent } from './detail-film/detail-film.component';
+import { FilmPopularsResolver } from './popular-films/popular-films.resolver';
 
 const routes: Routes = [
-  { path: 'popular-films',
-    component: PopularFilmsComponent },
+  {path: '', component: PopularFilmsComponent,
+    resolve: {
+      'popular-films': FilmPopularsResolver
+    },
+    pathMatch: 'full'},
   { path: 'film/:id',     component: DetailFilmComponent },
 ];
 

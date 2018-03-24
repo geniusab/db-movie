@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent implements OnInit {
-
+  @Output() navToggle = new EventEmitter<boolean>();
+  search: boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
-
+  public navOpen() {
+    this.navToggle.emit(true);
+  }
+  public toggle() {
+    this.search = !this.search;
+  }
 }

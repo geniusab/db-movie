@@ -8,7 +8,6 @@ import {of} from 'rxjs/observable/of';
 export class AppService {
     public languageEn = 'en-US';
     private apiKey = 'e1930df30bc3ae532084ae8399ac8913';
-
     constructor(private http: HttpClient) {
     }
 
@@ -28,7 +27,7 @@ export class AppService {
      * @param operation - name of the operation that failed
      * @param result - optional value to return as the observable result
      */
-    private handleError<T>(operation = 'operation', result?: T) {
+    public handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
 
             // TODO: send the error to remote logging infrastructure

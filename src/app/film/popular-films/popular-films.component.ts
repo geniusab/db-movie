@@ -1,9 +1,10 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { Film } from '../film.model';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FilmService } from '../services/film.service';
 import { IMAGE_DEFAULT_SIZE } from '../../app.config';
-import { style, animate, group, transition, trigger, query, stagger } from '@angular/animations';
+import { animate, group, query, stagger, style, transition, trigger } from '@angular/animations';
+
 
 @Component({
   selector: 'app-popular-films',
@@ -12,21 +13,21 @@ import { style, animate, group, transition, trigger, query, stagger } from '@ang
   animations: [
     trigger('pageAnimation', [
       transition(':enter', [
-        query('.avatar, .details', style({ transform: 'translateY(-100px)', opacity: 0 })),
-        query('.details .area, .details img', style({ transform: 'translateY(100px)', opacity: 0 })),
-        query('.avatar, .details, .details .area, .details img', [
+        query('.ch-animation, .details', style({transform: 'translateY(-100px)', opacity: 0})),
+        query('.details .area, .details .brand-card', style({transform: 'translateY(100px)', opacity: 0})),
+        query('.ch-animation, .details, .details .area, .details .brand-card', [
           stagger(100, [
             animate('500ms cubic-bezier(.35,0,.25,1)', style('*'))
           ])
         ])
       ]),
       transition(':leave', group([
-        query('.avatar', [
-          animate('500ms cubic-bezier(.35,0,.25,1)', style({ transform: 'translateY(-100px)', opacity: 0 }))
+        query('.ch-animation', [
+          animate('500ms cubic-bezier(.35,0,.25,1)', style({transform: 'translateY(-100px)', opacity: 0}))
         ]),
-        query('.details, .details .area, .details img', [
+        query('.details, .details .area, .details .brand-card', [
           stagger(-100, [
-            animate('500ms 100ms cubic-bezier(.35,0,.25,1)', style({ transform: 'translateY(-100px)', opacity: 0 }))
+            animate('500ms 100ms cubic-bezier(.35,0,.25,1)', style({transform: 'translateY(-100px)', opacity: 0}))
           ])
         ]),
       ])),
@@ -43,23 +44,29 @@ export class PopularFilmsComponent implements OnInit {
   public total = 20;
   public page = 1;
   public limit = 1;
+  public text = ['el efficitur.', 'el efficitur.', 'el efficitur.', 'el efficitur.', 'el efficitur.', 'el efficitur.'];
 
   constructor(private filmService: FilmService,
-              private router: Router) {
+              private router: Router,
+              private activatedRoute: ActivatedRoute) {
   }
 
   public ngOnInit() {
-    this.getPopularFilm(this.page);
+    // this.getPopularFilm(this.page);
+    this.activatedRoute.data.subscribe((data: { users: Film[] }) => {
+      console.log(data['popular-films']);
+      this.Films = data['popular-films']['results'] || [];
+    });
   }
-
 
   public getPopularFilm(page) {
     this.filmService.getPopularFilm(page)
-      .subscribe((Films: Film[]) => {
-          this.Films = Films['results'];
-        });
+      .subscribe((data: Film[]) => {
+        this.Films = data['results'];
+      });
 
   }
+
   public goToPage(n: number): void {
     this.page = n;
     console.log(this.page);

@@ -6,7 +6,7 @@
   flex: 0 22%
   flex-wrap: wrap
 
-.example-card
+.brand-card
   float: none
   flex: 0 1 250px
   max-width: 250px
@@ -22,10 +22,11 @@
     text-shadow: 0 2px 4px
 
 .list-grid
-  .example-card
+  .brand-card
     @for $i from 1 through 20
       &:nth-child(#{$i})
-        $random-color: rgb(random(255), random(255), random(255))
+        $random-color: rgb(random(255), random(100), random(255))
+        //$rand: random(100) + %
         background: linear-gradient($random-color 0%, lighten($random-color, 25%) 100%)
           //background-color: rgb(random(255),random(255),random(255))
 

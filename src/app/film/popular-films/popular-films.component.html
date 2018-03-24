@@ -1,29 +1,30 @@
-<header class="content-header avatar" *ngIf="title">
+<header class="content-header ch-animation" *ngIf="title">
   <div class="brand_container">
     <div class="content-header__section">Spotlight /</div>
     <h1 class="content-header__title">{{title}}</h1>
   </div>
 </header>
-<section class="brand_container">
-  <app-pagination class="area blurb" [count]="total"
+
+<section class="brand_container details">
+  <app-pagination class="area" [count]="total"
                   [page]="page"
                   [perPage]="limit"
                   [pagesToShow]="5"
                   (goPage)="goToPage($event)"
                   (goPrev)="onPrev()"
                   (goNext)="onNext()"></app-pagination>
-  <div class="list-grid details" *ngIf="Films">
-    <mat-card class="brand-card g-col-4 area" *ngFor="let item of Films">
+  <div class="g-grid g-grid-6" *ngIf="Films">
+    <mat-card class="brand-card g-col-4 " *ngFor="let item of Films" >
 
-      <img mat-card-image [src]="imgUrl+item.poster_path" alt="{{item.title}}" [routerLink]="['/film', item.id]">
+      <img class="brand-card__img" mat-card-image [src]="imgUrl+item.poster_path" alt="{{item.title}}" [routerLink]="['/film', item.id]">
       <footer class="brand-card__footer">
         <mat-card-title [routerLink]="['/film', item.id]" class="brand-card__title">
-          <!--<span>{{item.title}}</span>-->
+          <span>{{item.title}}</span>
         </mat-card-title>
-        <mat-card-subtitle class="rate-film">
+        <div class="brand-card__rate">
           <mat-icon class="icon">star reta</mat-icon>
           <span>{{item.vote_average}} %</span>
-        </mat-card-subtitle>
+        </div>
       </footer>
 
       <!--<mat-card-content>-->

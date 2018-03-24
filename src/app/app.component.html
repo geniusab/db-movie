@@ -1,8 +1,8 @@
 <mat-sidenav-container class="example-container dark-them" autosize>
 
 
-    <app-header></app-header>
-    <mat-sidenav #sidenav class="sidebar" mode="push">
+    <app-header (navToggle)="mainNav.toggle()"></app-header>
+    <mat-sidenav #mainNav class="sidebar" mode="push">
         <div class="sidebar__wrapper">
             <div class="logo">
                 <a class="logo__text">
@@ -17,18 +17,10 @@
         <div class="sidebar__background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
 
     </mat-sidenav>
-    <!--<header class="content-header" *ngIf="title">-->
-        <!--<div class="g-col brand_container">-->
-            <!--<div class="content-header__section">Spotlight /</div>-->
-            <!--<h1 class="content-header__title">{{title}}</h1>-->
-        <!--</div>-->
-    <!--</header>-->
     <div class="example-sidenav-content">
-
+        <button (click)="sidenav.toggle()">clclcl</button>
         <div class="dark-them">
-            <button type="button" mat-button (click)="sidenav.toggle()">
-                Menu
-            </button>
+
             <router-outlet></router-outlet>
         </div>
     </div>

@@ -4,7 +4,5 @@ import {PopularFilmsComponent} from './film/popular-films/popular-films.componen
 
 
 export const ROUTES: Routes = [
-  {path: '', component: PopularFilmsComponent, pathMatch: 'full'},
-  {path: 'popular-films', component: PopularFilmsComponent},
   {path: '**', component: NotFoundComponent}
 ];

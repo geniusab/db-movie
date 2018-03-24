@@ -4,13 +4,19 @@
             <a routerLink="/">Magic Film</a>
         </div>
         <div class="header__actions">
-            <button mat-button>
+            <button mat-button (click)="toggle()">
                 <mat-icon color="primary">search</mat-icon>
             </button>
-            <button mat-button>
+            <button mat-button (click)="navOpen()">
                 <mat-icon color="primary">menu</mat-icon>
             </button>
         </div>
     </div>
+  <form class="search-form">
+    <div class="search-bar brand_container" ngClass="{{search ? 'search-bar--open' : '' }}">
+      <input autocomplete="off" class="search-form__input"
+             formcontrolname="search" maxlength="60" placeholder="Search Films" required="" type="text" >
+    </div>
+  </form>
 </header>
 

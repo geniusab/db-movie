@@ -10,6 +10,7 @@ import { ExtractElementsPipe } from '../shared/pips/extract-elements.pipe';
 import { ReplaceSumPipe } from '../shared/pips/replace-sum.pipe';
 import { SearchComponent } from '../search/search.component';
 import { PaginationComponent } from '../shared/components/pagination/pagination.component';
+import { FilmPopularsResolver } from './popular-films/popular-films.resolver';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { PaginationComponent } from '../shared/components/pagination/pagination.
     MatModule
   ],
   declarations: [PopularFilmsComponent, DetailFilmComponent, ExtractElementsPipe, ReplaceSumPipe, SearchComponent, PaginationComponent],
-  providers: [FilmService]
+  providers: [FilmPopularsResolver, FilmService]
 })
 export class FilmModule {
 }

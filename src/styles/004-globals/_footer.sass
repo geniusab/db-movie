@@ -1,0 +1,61 @@
+.footer
+  width: 100%
+  background-color: #000
+  color: #fff
+  letter-spacing: 0.5px
+  &__wrap
+    padding: 24px 24px
+  .logo
+    margin-right: 9px
+    max-width: 104px
+    max-height: 106px
+
+.short-address
+  width: 100%
+  margin: 25px 0 0 0
+  &__title
+    color: #ffffff
+    +font-size(24)
+    font-weight: 700
+    letter-spacing: 0.4px
+    margin-right: 21px
+    display: block
+  &__link
+    display: block
+    +font-size(18)
+    font-weight: 300
+
+
+.brand-address
+  max-width: 450px
+
+.info
+  padding-top: 4px
+  &__item
+    display: block
+
+/*  responsive 980
+ *==========================================
+@media (min-width: 980px)
+  .footer
+    height: 102px
+    &__wrap
+      padding: 17px 24px
+    .logo
+      margin-right: 9px
+      max-width: 66px
+      max-height: 68px
+
+  .short-address
+    margin: 14px 0 0 35px
+    display: flex
+    flex-wrap: wrap
+    align-items: baseline
+    &__title
+      margin-right: 21px
+
+
+@media (min-width: 1366px)
+  .footer
+    &__wrap
+      padding: 17px 0
