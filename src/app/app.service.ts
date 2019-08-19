@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
-import {catchError, map, tap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
 
@@ -8,6 +8,7 @@ import { Observable, of } from 'rxjs';
 export class AppService {
     public languageEn = 'en-US';
     private apiKey = 'e1930df30bc3ae532084ae8399ac8913';
+
     constructor(private http: HttpClient) {
     }
 
@@ -16,7 +17,7 @@ export class AppService {
             .append('api_key', this.apiKey)
             .append('page', page || '1')
             .append('language', this.languageEn);
-        return this.http.get(pathName, {params: params}).pipe(
+        return this.http.get(pathName, {params}).pipe(
             catchError(this.handleError('get', []))
         );
     }

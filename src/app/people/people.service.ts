@@ -19,10 +19,9 @@ export class PeopleService {
     }
 
     /**
-     * get Person One all films
-     * @param id
-     * @returns {Observable<any>}
-     * ==========================================
+     * @get all films for person
+     * @param id type number
+     * @returns Observable<any>
      */
     public getActorFilms(id: number): Observable<ActorsFilm | Object> {
         return this.appService.get(`${API_PEOPLE_URL}/${id}/movie_credits`);

@@ -1,4 +1,4 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 
 @Pipe({
@@ -6,11 +6,8 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class ExtractElementsPipe implements PipeTransform {
 
-    transform(data: Object[]): any {
+    transform(data: any[]): any {
         let list = '';
-        // for(let i = 0; i < data.length; i++) {
-        //   list += data[i]['name'] + ', ';
-        // }
         data.forEach(item => {
             list += item['name'] + ', ';
         });

@@ -1,24 +1,21 @@
 <mat-sidenav-container class="example-container dark-them" autosize>
-
-
     <app-header (navToggle)="mainNav.toggle()"></app-header>
     <mat-sidenav #mainNav class="sidebar" mode="push">
         <div class="sidebar__wrapper">
             <div class="logo">
                 <a class="logo__text">
                     <div class="logo__img">
-                        <img src="/assets/img/angular.svg">
+                        <img src="/assets/img/logo.png">
                     </div>
                     Logo</a>
             </div>
-            <!--<button type="button" mat-button (click)="sidenav.close()">close</button>-->
             <app-sidebar></app-sidebar>
         </div>
         <div class="sidebar__background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
 
     </mat-sidenav>
     <div class="example-sidenav-content">
-        <button (click)="sidenav.toggle()">clclcl</button>
+        <button (click)="mainNav.toggle()">clclcl</button>
         <div class="dark-them">
 
             <router-outlet></router-outlet>
@@ -26,8 +23,6 @@
     </div>
 
 </mat-sidenav-container>
-
-
 
 
 

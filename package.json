@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "dev_ip": "ng serve --host=0.0.0.0 --o",
     "start": "ng serve --o",
     "build": "ng build",
     "test": "ng test",
